@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+mlflow-data/
+exported_model/
+validation_predictions.csv
+screenshots/*

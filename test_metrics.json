@@ -1,0 +1,7 @@
+{
+  "target_variable": "Y1",
+  "n_test": 154,
+  "test_mae": 0.38059978354978036,
+  "test_rmse": 0.5306836354329241,
+  "note": "Test set was evaluated after model selection; do not tune on this result."
+}
