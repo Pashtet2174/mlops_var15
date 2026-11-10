@@ -1,28 +1,30 @@
-# MLOps laboratory - Variant 15
+# Лабораторная работа MLOps — Вариант 15
 
-Task: predict building heating load (`Y1`) from `X1`-`X8` using the UCI Energy Efficiency dataset.
+**Задача:** прогнозирование нагрузки на отопление здания (`Y1`) на основе признаков `X1`–`X8` с использованием набора данных UCI Energy Efficiency.
 
-- `Y2` (Cooling Load) is excluded from model inputs.
-- `X6` (Orientation) and `X8` (Glazing Area Distribution) are treated as categorical codes.
-- Numeric preprocessing and categorical encoding are stored in the sklearn Pipeline.
-- Experiments are compared by validation MAE; the test set is evaluated only after selecting the model.
+- `Y2` (нагрузка на охлаждение) исключена из входных признаков модели.
+- `X6` (ориентация здания) и `X8` (распределение площади остекления) рассматриваются как категориальные признаки, представленные кодами.
+- Предварительная обработка числовых признаков и кодирование категориальных признаков реализованы внутри конвейера `sklearn Pipeline`.
+- Эксперименты сравниваются по значению MAE на валидационной выборке. Тестовая выборка используется для оценки модели только после её окончательного выбора.
 
-The detailed Windows 11 PowerShell runbook is provided separately in the ChatGPT instructions.
+Подробная инструкция по выполнению проекта в Windows 11 через PowerShell приведена отдельно в инструкциях ChatGPT.
 
-## Project layout
+## Структура проекта
 
-- `data/raw/ENB2012_data.xlsx` - unchanged source workbook
-- `src/train.py` - one MLflow training run
-- `src/promote.py` - assign the `champion` alias
-- `src/export_model.py` - export the immutable Registry version selected by alias
-- `src/evaluate.py` - final test evaluation
-- `src/app.py` - FastAPI regression API
-- `src/check_api.py` - API/exported-model smoke test
-- `Dockerfile`, `compose.yaml` - container build and Compose deployment
+- `data/raw/ENB2012_data.xlsx` — исходный файл Excel без изменений.
+- `src/train.py` — запуск одного эксперимента обучения модели с использованием MLflow.
+- `src/promote.py` — назначение псевдонима `champion` выбранной версии модели.
+- `src/export_model.py` — экспорт неизменяемой версии модели из Model Registry, выбранной с помощью псевдонима.
+- `src/evaluate.py` — итоговая оценка модели на тестовой выборке.
+- `src/app.py` — API для прогнозирования с использованием FastAPI.
+- `src/check_api.py` — проверка работоспособности API и экспортированной модели (smoke test).
+- `Dockerfile`, `compose.yaml` — файлы для сборки контейнера и развёртывания приложения с помощью Docker Compose.
 
-## Dependencies
+## Зависимости
 
-Python 3.12 is used to match the lab manual. Install with:
+Для выполнения лабораторной работы используется Python 3.12 в соответствии с требованиями методического руководства.
+
+Установка зависимостей и создание виртуального окружения выполняются следующими командами:
 
 ```powershell
 py -3.12 -m venv .venv
